@@ -30,7 +30,8 @@ class App {
         let randomNum = Random.pickNumberInRange(0, 9);
 
         if (randomNum >= 4){
-          //전진
+          // depth 3이다. -> 수정할것.
+          // 전진
           car.position[i] += 1;
         } 
       }
