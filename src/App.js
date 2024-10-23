@@ -41,7 +41,7 @@ class App {
         const RACE_PROGRESS_MESSAGE = `${car.name[i]} : ${RACE_PROGRESS_BAR}`;
         Console.print(RACE_PROGRESS_MESSAGE);
       }
-      Console.print();
+      Console.print("");
     }
 
 
