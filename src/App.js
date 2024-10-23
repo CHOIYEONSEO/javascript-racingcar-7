@@ -2,7 +2,6 @@ import { Console, Random } from "@woowacourse/mission-utils";
 // Console.readLineAsync() / Console.print() / Random.pickNumberInRange()
 
 
-// n대의 자동차는 전진 또는 멈출 수 있다.
 // 전진하는 자동차를 출력할 때 자동차 이름을 같이 출력한다.
 // 이름은 5자 이하만 가능하다.
 // 자동차 경주 게임을 완료한 후 누가 우승했는지를 알려준다. 우승자는 한 명 이상일 수 있다.
@@ -23,8 +22,19 @@ class App {
       position: CAR_POSITION_ARRAY,
     };
     // 분리 후 이름 5자 이하인지 유효성 체크 필요하다.
-
     
+    // for 반복문이 적절한가? -> 적절하지 않음. 에어비엔비 컨벤션 13.6에 따라 bad code. 수정할것.
+    for (var j = MAX_ATTEMPTS; j > 0; j--){
+      for (var i = 0; i < CAR_NAME_ARRAY.length; i++){
+        //randomNum이 첫 시도에는 undefined라고 나오는 이유?
+        let randomNum = Random.pickNumberInRange(0, 9);
+
+        if (randomNum >= 4){
+          //전진
+          car.position[i] += 1;
+        } 
+      }
+      
     }
 
 
