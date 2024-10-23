@@ -2,7 +2,6 @@ import { Console, Random } from "@woowacourse/mission-utils";
 // Console.readLineAsync() / Console.print() / Random.pickNumberInRange()
 
 
-// 전진하는 자동차를 출력할 때 자동차 이름을 같이 출력한다.
 // 이름은 5자 이하만 가능하다.
 // 자동차 경주 게임을 완료한 후 누가 우승했는지를 알려준다. 우승자는 한 명 이상일 수 있다.
 // 우승자가 여러 명일 경우 쉼표(,)를 이용하여 구분한다.
