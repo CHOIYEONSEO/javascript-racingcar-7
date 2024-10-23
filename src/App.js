@@ -23,6 +23,7 @@ class App {
     };
     // 분리 후 이름 5자 이하인지 유효성 체크 필요하다.
     
+    Console.print("실행 결과");
     // for 반복문이 적절한가? -> 적절하지 않음. 에어비엔비 컨벤션 13.6에 따라 bad code. 수정할것.
     for (var j = MAX_ATTEMPTS; j > 0; j--){
       for (var i = 0; i < CAR_NAME_ARRAY.length; i++){
@@ -33,10 +34,16 @@ class App {
           // depth 3이다. -> 수정할것.
           // 전진
           car.position[i] += 1;
-        } 
+        }
+
+        // 진행과정 출력 메소드 분리 필요
+        const RACE_PROGRESS_BAR = '-'.repeat(car.position[i]);
+        const RACE_PROGRESS_MESSAGE = `${car.name[i]} : ${RACE_PROGRESS_BAR}`;
+        Console.print(RACE_PROGRESS_MESSAGE);
       }
-      
+      Console.print();
     }
+
 
 
 
