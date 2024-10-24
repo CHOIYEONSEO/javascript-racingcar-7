@@ -46,22 +46,19 @@ class App {
     const WINNER_POSITION = Math.max(...car.position);
     
     let position = 0;
-    const WINNER_INDEX_ARRAY = []
+    const WINNER_ARRAY = []
     while (true){
       let WINNER_INDEX = car.position.indexOf(WINNER_POSITION, position);
       
       if (WINNER_INDEX == -1){
         break;
       }
-      WINNER_INDEX_ARRAY.push(WINNER_INDEX);
+      WINNER_ARRAY.push(car.name[WINNER_INDEX]);
       position = WINNER_INDEX + 1;
     }
 
-    if (WINNER_INDEX_ARRAY.length == 1){
-      Console.print(`최종 우승자 : ${car.name[WINNER_INDEX_ARRAY[0]]}`);
-    } 
-
-
+    const WINNER_MESSAGE = WINNER_ARRAY.join(', ');
+    Console.print(`최종 우승자 : ${WINNER_MESSAGE}`);
 
   }
 }
