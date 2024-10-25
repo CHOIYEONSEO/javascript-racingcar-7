@@ -18,7 +18,6 @@ class App {
       position: CAR_POSITION_ARRAY,
     };
 
-    // 분리 후 이름 5자 이하인지 유효성 체크 필요하다.
     car.name.forEach(nameValidation);
     
     Console.print("\n실행 결과");
