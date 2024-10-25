@@ -7,7 +7,6 @@ import { Console, Random } from "@woowacourse/mission-utils";
 
 class App {
   async run() {
-    // 입력 요청 메소드로 분리 필요해 보인다.
     const CAR_NAME = await Console.readLineAsync("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n");
     const MAX_ATTEMPTS = await Console.readLineAsync("시도할 횟수는 몇 회인가요?\n");
 
@@ -20,7 +19,7 @@ class App {
     };
     // 분리 후 이름 5자 이하인지 유효성 체크 필요하다.
     
-    Console.print("실행 결과");
+    Console.print("\n실행 결과");
     // for 반복문이 적절한가? -> 적절하지 않음. 에어비엔비 컨벤션 13.6에 따라 bad code. 수정할것.
     for (var j = MAX_ATTEMPTS; j > 0; j--){
       for (var i = 0; i < CAR_NAME_ARRAY.length; i++){
