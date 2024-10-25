@@ -1,9 +1,7 @@
 import { Console, Random } from "@woowacourse/mission-utils";
 // Console.readLineAsync() / Console.print() / Random.pickNumberInRange()
-import Car from './Car.js';
 import nameValidation from "./nameValidation.js";
 
-// 이름은 5자 이하만 가능하다.
 // 사용자가 잘못된 값을 입력할 경우 "[ERROR]"로 시작하는 메시지와 함께 Error를 발생시킨 후 애플리케이션은 종료되어야 한다.
 
 class App {
@@ -14,14 +12,13 @@ class App {
     //, 기준으로 이름 분리와 함께 car(이름, 위치) 오브젝트 생성.
     const CAR_NAME_ARRAY = CAR_NAME.split(',');
     const CAR_POSITION_ARRAY = CAR_NAME_ARRAY.map(n => 0);
-/* 
+
     const car = {
       name: CAR_NAME_ARRAY,
       position: CAR_POSITION_ARRAY,
     };
-     */
+
     // 분리 후 이름 5자 이하인지 유효성 체크 필요하다.
-    const car = new Car(CAR_NAME_ARRAY, CAR_POSITION_ARRAY);
     car.name.forEach(nameValidation);
     
     Console.print("\n실행 결과");
