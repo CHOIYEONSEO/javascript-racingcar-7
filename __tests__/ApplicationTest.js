@@ -84,4 +84,22 @@ describe("자동차 경주", () => {
 
     await expect(app.run()).rejects.toThrow("[ERROR]");
   })
+
+  test("예외 테스트 - 횟수 입력 값 정수 아님", async () => {
+    const inputs = ["pobi,woni", "2.5"];
+    mockQuestions(inputs);
+
+    const app = new App();
+
+    await expect(app.run()).rejects.toThrow("[ERROR]");
+  })
+
+  test("예외 테스트 - 횟수 입력 값 양수 아님", async () => {
+    const inputs = ["pobi,woni", "-1"];
+    mockQuestions(inputs);
+
+    const app = new App();
+
+    await expect(app.run()).rejects.toThrow("[ERROR]");
+  })
 });
