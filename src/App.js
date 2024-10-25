@@ -1,6 +1,6 @@
 import { Console, Random } from "@woowacourse/mission-utils";
 // Console.readLineAsync() / Console.print() / Random.pickNumberInRange()
-import nameValidation from "./nameValidation.js";
+import nameValidation from "./validation/nameValidation.js";
 
 // 사용자가 잘못된 값을 입력할 경우 "[ERROR]"로 시작하는 메시지와 함께 Error를 발생시킨 후 애플리케이션은 종료되어야 한다.
 
