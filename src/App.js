@@ -1,15 +1,15 @@
 import { Console, Random } from "@woowacourse/mission-utils";
 // Console.readLineAsync() / Console.print() / Random.pickNumberInRange()
-import { inputValidation, nameValidation } from "./validation.js";
+import Validation from "./Validation.js";
 
 // 사용자가 잘못된 값을 입력할 경우 "[ERROR]"로 시작하는 메시지와 함께 Error를 발생시킨 후 애플리케이션은 종료되어야 한다.
 
 class App {
   async run() {
     const CAR_NAME = await Console.readLineAsync("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n");
-    inputValidation(CAR_NAME, '자동차 이름');
+    Validation.inputValidate(CAR_NAME, '자동차 이름');
     const MAX_ATTEMPTS = await Console.readLineAsync("시도할 횟수는 몇 회인가요?\n");
-    inputValidation(MAX_ATTEMPTS, '시도 횟수');
+    Validation.inputValidate(MAX_ATTEMPTS, '시도 횟수');
 
     //, 기준으로 이름 분리와 함께 car(이름, 위치) 오브젝트 생성.
     const CAR_NAME_ARRAY = CAR_NAME.split(',');
@@ -20,7 +20,7 @@ class App {
       position: CAR_POSITION_ARRAY,
     };
 
-    car.name.forEach(nameValidation);
+    car.name.forEach(Validation.nameValidate);
     
     Console.print("\n실행 결과");
     // for 반복문이 적절한가? -> 적절하지 않음. 에어비엔비 컨벤션 13.6에 따라 bad code. 수정할것.
