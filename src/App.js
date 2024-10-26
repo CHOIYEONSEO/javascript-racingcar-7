@@ -2,6 +2,7 @@ import { Console, Random } from "@woowacourse/mission-utils";
 // Console.readLineAsync() / Console.print() / Random.pickNumberInRange()
 import Validation from "./Validation.js";
 import Race from "./Race.js";
+import Winner from "./Winner.js";
 
 class App {
   async run() {
@@ -24,22 +25,8 @@ class App {
     Console.print("\n실행 결과");
     Race.roundProgress(MAX_ATTEMPTS, car);
 
-    const WINNER_POSITION = Math.max(...car.position);
-    
-    let position = 0;
-    const WINNER_ARRAY = []
-    while (true){
-      let WINNER_INDEX = car.position.indexOf(WINNER_POSITION, position);
-      
-      if (WINNER_INDEX == -1){
-        break;
-      }
-      WINNER_ARRAY.push(car.name[WINNER_INDEX]);
-      position = WINNER_INDEX + 1;
-    }
-
-    const WINNER_MESSAGE = WINNER_ARRAY.join(', ');
-    Console.print(`최종 우승자 : ${WINNER_MESSAGE}`);
+    const WINNER_ARRAY = Winner.findWinner(car);
+    Winner.printWinner(WINNER_ARRAY);
 
   }
 }
