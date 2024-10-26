@@ -16,7 +16,6 @@ class Race {
     
             car.position[i] += Race.carMovement(randomNum);
     
-            // 진행과정 출력 메소드 분리 필요
             Race.printProgress(car.name[i], car.position[i]);
         }
     }

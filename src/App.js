@@ -3,8 +3,6 @@ import { Console, Random } from "@woowacourse/mission-utils";
 import Validation from "./Validation.js";
 import Race from "./Race.js";
 
-// 사용자가 잘못된 값을 입력할 경우 "[ERROR]"로 시작하는 메시지와 함께 Error를 발생시킨 후 애플리케이션은 종료되어야 한다.
-
 class App {
   async run() {
     const CAR_NAME = await Console.readLineAsync("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n");
@@ -24,7 +22,6 @@ class App {
     car.name.forEach(Validation.nameValidate);
     
     Console.print("\n실행 결과");
-    // for 반복문이 적절한가? -> 적절하지 않음. 에어비엔비 컨벤션 13.6에 따라 bad code. 수정할것.
     Race.roundProgress(MAX_ATTEMPTS, car);
 
     const WINNER_POSITION = Math.max(...car.position);
