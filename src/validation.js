@@ -1,6 +1,13 @@
 class Validation {
     constructor() {}
 
+    static inputValidate(input, type) {
+        if (!input) {
+            const errMessage = `[ERROR] ${type} 값을 입력해주세요(Empty Input)`;
+            throw new Error(errMessage);
+        }
+    }
+
     static isNumber(value) {
         if(isNaN(value)){
             const errMessage = `[ERROR] 시도 횟수는 숫자를 입력해주세요(Not Number: ${value})`;
@@ -10,7 +17,9 @@ class Validation {
         return Number(value);
     }
 
-    static attemptsValidate(attempts) {
+    static attemptsValidate(attempts, type) {
+        Validation.inputValidate(attempts, type);
+
         attempts = Validation.isNumber(attempts)
 
         if (!Number.isInteger(attempts)) {
@@ -23,17 +32,7 @@ class Validation {
             throw new Error(errMessage);
         }
 
-    }
-
-    static inputValidate(input, type) {
-        if (!input) {
-            const errMessage = `[ERROR] ${type} 값을 입력해주세요(Empty Input)`;
-            throw new Error(errMessage);
-        }
-
-        if (type == '시도 횟수') {
-            Validation.attemptsValidate(input);
-        }
+        return attempts;
     }
 
     static nameValidate(name) {

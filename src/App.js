@@ -9,8 +9,8 @@ class App {
   async run() {
     const CAR_NAME = await Console.readLineAsync("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n");
     Validation.inputValidate(CAR_NAME, '자동차 이름');
-    const MAX_ATTEMPTS = await Console.readLineAsync("시도할 횟수는 몇 회인가요?\n");
-    Validation.inputValidate(MAX_ATTEMPTS, '시도 횟수'); //attemptsValidate로 수정 필요. 타입 숫자로 변경되도록.
+    let MAX_ATTEMPTS = await Console.readLineAsync("시도할 횟수는 몇 회인가요?\n");
+    MAX_ATTEMPTS = Validation.attemptsValidate(MAX_ATTEMPTS, '시도 횟수');
 
     //, 기준으로 이름 분리와 함께 car(이름, 위치) 오브젝트 생성.
     const CAR_NAME_ARRAY = CAR_NAME.split(',');
@@ -25,7 +25,7 @@ class App {
     
     Console.print("\n실행 결과");
     // for 반복문이 적절한가? -> 적절하지 않음. 에어비엔비 컨벤션 13.6에 따라 bad code. 수정할것.
-    Race.roundProgress(Number(MAX_ATTEMPTS), car);
+    Race.roundProgress(MAX_ATTEMPTS, car);
 
     const WINNER_POSITION = Math.max(...car.position);
     
