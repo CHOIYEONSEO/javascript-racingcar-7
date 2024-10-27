@@ -8,13 +8,13 @@ class App {
   async run() {
     const CAR_NAME = await Console.readLineAsync("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n");
     Validation.inputValidate(CAR_NAME, '자동차 이름');
+
     let maxAttempts = await Console.readLineAsync("시도할 횟수는 몇 회인가요?\n");
-    maxAttempts = Validation.attemptsValidate(maxAttempts, '시도 횟수');
+    maxAttempts = Validation.attemptsValidate(maxAttempts, '시도 횟수'); // 유효성 체크 및 숫자로 타입 변경
 
     //, 기준으로 이름 분리와 함께 car(이름, 위치) 오브젝트 생성.
     const CAR_NAME_ARRAY = CAR_NAME.split(',');
     const CAR_POSITION_ARRAY = CAR_NAME_ARRAY.map(n => 0);
-
     const car = {
       name: CAR_NAME_ARRAY,
       position: CAR_POSITION_ARRAY,
