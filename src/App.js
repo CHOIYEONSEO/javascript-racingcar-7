@@ -1,4 +1,4 @@
-import { Console, Random } from "@woowacourse/mission-utils";
+import { Console } from "@woowacourse/mission-utils";
 // Console.readLineAsync() / Console.print() / Random.pickNumberInRange()
 import Validation from "./Validation.js";
 import Race from "./Race.js";
