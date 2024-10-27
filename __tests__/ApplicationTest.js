@@ -46,6 +46,40 @@ describe("자동차 경주", () => {
     });
   });
 
+  test("기능 테스트 - 공동 우승", async () => {
+    const MOVING_FORWARD = 4;
+    const inputs = ["pobi,woni", "1"];
+    const logs = ["pobi : -", "woni : -", "최종 우승자 : pobi, woni"];
+    const logSpy = getLogSpy();
+
+    mockQuestions(inputs);
+    mockRandoms([MOVING_FORWARD, MOVING_FORWARD]);
+
+    const app = new App();
+    await app.run();
+
+    logs.forEach((log) => {
+      expect(logSpy).toHaveBeenCalledWith(expect.stringContaining(log));
+    });
+  });
+
+  test("기능 테스트 - 모두 전진 없음", async () => {
+    const STOP = 3;
+    const inputs = ["pobi,woni", "1"];
+    const logs = ["pobi : ", "woni : ", "최종 우승자 : pobi, woni"];
+    const logSpy = getLogSpy();
+
+    mockQuestions(inputs);
+    mockRandoms([STOP, STOP]);
+
+    const app = new App();
+    await app.run();
+
+    logs.forEach((log) => {
+      expect(logSpy).toHaveBeenCalledWith(expect.stringContaining(log));
+    });
+  });
+
   test("예외 테스트 - 자동차 이름 5자 초과", async () => {
     // given
     const inputs = ["pobi,javaji"];
